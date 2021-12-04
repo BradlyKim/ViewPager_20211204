@@ -20,20 +20,19 @@ class MainViewPagerAdapter( fm : FragmentManager ) : FragmentPagerAdapter(fm) {
         }
         
     }
-    
-    override fun getCount(): Int {
-        return 3
-    }
 
+
+//    함수의 결과를 곧바로 3으로 지정
+    override fun getCount() = 3
+
+//    함수의 결과를 when (position)에 따라 return
     override fun getItem(position: Int): Fragment {
 
-        if (position == 0) {
-            return NameFragment()
+        return when(position) {
+            0 -> NameFragment()
+            1 -> AddressFragment()
+            else -> AgeFragment()
 
-        }else if (position == 1){
-            return AddressFragment()
-        }else {
-            return AgeFragment()
         }
 
     }
